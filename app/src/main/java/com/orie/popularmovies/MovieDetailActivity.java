@@ -47,14 +47,12 @@ public class MovieDetailActivity extends AppCompatActivity {
             Pattern regex = Pattern.compile("\\((.*?)\\)");
             Matcher regexMatcher = regex.matcher(mMoviedetails);
 
-            String title;
-            String posterPath;
-            String datereleased;
-            String overview;
-            String backdrop;
-            String rating;
-
-              title =posterPath= datereleased = overview = backdrop = rating = null;
+            String title = null;
+            String posterPath = null;
+            String datereleased = null;
+            String overview = null;
+            String backdrop = null;
+            String rating = null;
 
             while (regexMatcher.find()) {
                 list.add(regexMatcher.group(1));
@@ -69,8 +67,7 @@ public class MovieDetailActivity extends AppCompatActivity {
 
             mtitle = title;
 
-            Picasso.with(this).load(Uri.parse("http://image.tmdb.org/t/p/w300/" + backdrop))
-                    .into(image);
+            Picasso.with(this).load(Uri.parse("http://image.tmdb.org/t/p/w300/" + backdrop)).into(image);
             original_title.setText(title);
             year.setText(datereleased);
             Rating.setText(rating);
